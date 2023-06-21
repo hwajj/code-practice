@@ -1,4 +1,3 @@
-import "./App.css";
 import CarouselTemplate from "./component/CarouselTemplate.jsx";
 
 function App() {
