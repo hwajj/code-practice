@@ -1,18 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "@/scss/dnd.default.scss";
 import { inrange } from "@/js/util.js";
 
 const DndDefault = () => {
   const containerRef = useRef(null);
   const boxRef = useRef(null);
-
   const [{ x, y }, setPosition] = useState({
     x: 0,
     y: 0,
   });
+  useEffect(() => {
+    boxRef.current.style.setProperty("--x", x + "px");
+    boxRef.current.style.setProperty("--y", y + "px");
+  }, [x, y]);
+
   const dndHandler = (clickEvent) => {
     const container = containerRef.current.getBoundingClientRect();
     const box = boxRef.current.getBoundingClientRect();
+
     const boxMarginValue = parseInt(
       getComputedStyle(boxRef.current).getPropertyValue("margin"),
       10
@@ -51,7 +56,7 @@ const DndDefault = () => {
   return (
     <div className="container" ref={containerRef}>
       <div
-        style={{ transform: `translateX(${x}px) translateY(${y}px)` }}
+        // style={{ transform: `translateX(${x}px) translateY(${y}px)` }}
         onPointerDown={dndHandler}
         className={"box"}
         ref={boxRef}
