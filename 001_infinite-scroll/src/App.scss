@@ -1,86 +1,72 @@
-html,body {
-  font-family: 'Montserrat', sans-serif;
-  background: #1e293b;
-  //color: #f8fafc;
-  width: 100%;
-  height: 100%;
-}
-
 .app {
-  position:absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  //border: 1px solid red;
-  height: 100%;
+  border: 1px solid green;
+  position: absolute;
   width: 100%;
-
-
-
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1e293b;
+  color: #f8fafc;
   .tag-list {
-    //border: 1px solid green;
     width: 30rem;
+    max-width: 90vw;
+    //border: 1px solid blue;
+    height: 40vh;
     display: flex;
+
     flex-direction: column;
     justify-content: center;
-    max-width: 90vw;
-    height: 50rem;
-    position: relative;
-    overflow: hidden;
-    color: greenyellow;
-    font-size: 2rem;
-    margin: 1rem 0;
+    gap: 1rem;
   }
 }
 
-
-.loop-slider {
+.slide-container{
+  //border: 1px solid red;
+  display: flex;
+  overflow: hidden;
+  padding: 1rem;
   .inner {
     display: flex;
-    width: fit-content;
-    animation-name: loop;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: var(--direction);
-    animation-duration: var(--duration);
-  }
 
+    //border: 1px solid pink;
+    animation-name: loop;
+    animation-iteration-count: infinite;
+    animation-duration: var(--duration);
+    animation-direction: var(--reverse);
+    animation-timing-function: linear;
+
+  }
 }
 
 .tag {
-  display: flex;
-  align-items: center;
-  gap : 0 0.2rem;
-  //border: 1px solid white;
-  border-radius: 4px;
-  box-shadow: 3px 4px 47px 1px rgba(41,108,125,0.75);
-  -webkit-box-shadow: 3px 4px 47px 1px rgba(41,108,125,0.75);
-  -moz-box-shadow: 3px 4px 47px 1px rgba(41,108,125,0.75);
-  margin: .5rem;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+
+  width: 3rem;
+  margin-right: 1rem;
   padding: 1rem;
+  //border: 1px solid orangered;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow:
+          0 0.1rem 0.2rem rgb(0 0 0 / 20%),
+          0 0.1rem 0.5rem rgb(0 0 0 / 30%),
+          0 0.2rem 1.5rem rgb(0 0 0 / 40%);
 
 }
-
 .fade {
   pointer-events: none;
   background: linear-gradient(90deg, #1e293b, transparent 30%, transparent 70%, #1e293b);
   position: absolute;
-  //border: 1px solid red;
   inset: 0;
-  //left: 0;
-  //top: 0;
-  //bottom: 0;
-  //right: 0;
 }
 
 @keyframes loop {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-50%);
   }
 }
-
-
